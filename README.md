@@ -3,7 +3,7 @@
 Premium website for **DK Laundry & Dry Cleaners**, Andheri West, Mumbai — trusted since 1985.
 Dry cleaning, steam iron, wash & fold, shoe laundry and more, with free pickup & delivery.
 
-🔗 Live: https://dk-laundry.netlify.app
+
 
 ## Tech stack
 
