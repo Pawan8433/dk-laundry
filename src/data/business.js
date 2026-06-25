@@ -236,4 +236,34 @@ export const GALLERY = [
   { src: "https://images.unsplash.com/photo-1469504512102-900f29606341?auto=format&fit=crop&w=600&q=80", alt: "Folded towels" },
 ];
 
+export const FAQS = [
+  {
+    q: "Do you offer free pickup and delivery?",
+    a: "Yes. Free doorstep pickup and delivery is included across Andheri West and nearby areas on every order — just book online or on WhatsApp.",
+  },
+  {
+    q: "How long does an order take?",
+    a: "Most wash, fold and iron orders are ready in 24–48 hours. Dry cleaning and specialty work take 2–3 days. Need it sooner? Ask for our same-day Express service.",
+  },
+  {
+    q: "How do I get a price for dyeing or darning?",
+    a: "Specialty work like dyeing and raffu (darning) is quoted on inspection, since it depends on the fabric and the work involved. Share a photo on WhatsApp or send it with a pickup and we'll confirm the price before starting.",
+  },
+  {
+    q: "Which areas do you cover?",
+    a: "We serve Andheri West and surrounding neighbourhoods from our shop on J.P. Road, opposite the BMC office. Not sure if you're in range? Call or WhatsApp us and we'll let you know.",
+  },
+  {
+    q: "How do I pay?",
+    a: "Pay on delivery by cash or UPI — whatever is convenient. Pricing is transparent with no hidden charges.",
+  },
+];
+
+export const SOCIALS = [
+  { label: "WhatsApp", href: `https://wa.me/${CONTACT.whatsapp}`, icon: "whatsapp" },
+  { label: "Call", href: `tel:${CONTACT.phones[0].dial}`, icon: "phone" },
+  { label: "Email", href: `mailto:${CONTACT.email}`, icon: "mail" },
+  { label: "Directions", href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapQuery)}`, icon: "pin" },
+];
+
 export const STATS = { since: 1985, years: new Date().getFullYear() - 1985 };

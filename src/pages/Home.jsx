@@ -3,6 +3,7 @@ import PopularServices from "../components/PopularServices.jsx";
 import HowItWorks from "../components/HowItWorks.jsx";
 import WhyChooseUs from "../components/WhyChooseUs.jsx";
 import Testimonials from "../components/Testimonials.jsx";
+import Faq from "../components/Faq.jsx";
 import CTA from "../components/CTA.jsx";
 import useReveal from "../hooks/useReveal.js";
 
@@ -15,6 +16,7 @@ export default function Home() {
       <HowItWorks />
       <WhyChooseUs />
       <Testimonials />
+      <Faq tint={false} />
       <CTA />
     </>
   );

@@ -1,4 +1,5 @@
 import PageHeader from "../components/PageHeader.jsx";
+import Faq from "../components/Faq.jsx";
 import CTA from "../components/CTA.jsx";
 import { SERVICES, PRICING_PREVIEW } from "../data/business.js";
 import { useBooking } from "../context/BookingContext.jsx";
@@ -56,6 +57,7 @@ export default function Pricing() {
         </div>
       </section>
 
+      <Faq />
       <CTA />
     </>
   );

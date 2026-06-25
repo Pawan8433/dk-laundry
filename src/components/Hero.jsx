@@ -35,7 +35,11 @@ export default function Hero() {
           <img
             src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=900&q=80"
             alt="Freshly pressed shirts at DK Laundry"
+            width="900"
+            height="600"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
             onError={(e) => e.currentTarget.parentElement.classList.add("img-fallback")}
           />
           <div className="hero-badge">

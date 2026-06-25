@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import Icon from "./Icon.jsx";
-import { useBooking } from "../context/BookingContext.jsx";
 
 function priceNode(s) {
   if (s.price == null) return <span className="sc-price-req">On request</span>;
@@ -11,9 +10,11 @@ function priceNode(s) {
   );
 }
 
+// A single, clear action per card (view details) keeps the CTA hierarchy clean —
+// booking lives on the detail page, header, sticky bar and CTA band instead of
+// repeating a "Book Now" button on every card in the grid.
 export default function ServiceCard({ service }) {
   const navigate = useNavigate();
-  const { openBooking } = useBooking();
   const go = () => navigate(`/services/${service.id}`);
 
   return (
@@ -22,7 +23,13 @@ export default function ServiceCard({ service }) {
       onClick={go}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && go()}
+      aria-label={`${service.name} — view details`}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          go();
+        }
+      }}
     >
       <span className="sc-ic"><Icon name={service.icon} size={26} /></span>
 
@@ -33,16 +40,9 @@ export default function ServiceCard({ service }) {
         </div>
         <span className="sc-cat">{service.category}</span>
         <p className="sc-desc">{service.short}</p>
-        {priceNode(service)}
 
-        <div className="sc-actions">
-          <button
-            className="btn btn-primary sc-book"
-            type="button"
-            onClick={(e) => { e.stopPropagation(); openBooking(service.name); }}
-          >
-            Book Now
-          </button>
+        <div className="sc-foot">
+          {priceNode(service)}
           <span className="sc-view">View details →</span>
         </div>
       </div>

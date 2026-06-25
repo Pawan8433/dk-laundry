@@ -18,9 +18,10 @@ export default function App() {
   const { isOpen } = useBooking();
   return (
     <div className="app">
+      <a className="skip-link" href="#main">Skip to content</a>
       <ScrollToTop />
       <Header />
-      <main className="app-main">
+      <main className="app-main" id="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

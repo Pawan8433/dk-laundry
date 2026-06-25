@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo.jsx";
-import { BUSINESS, CONTACT, SERVICES } from "../data/business.js";
+import Icon from "./Icon.jsx";
+import { BUSINESS, CONTACT, SERVICES, SOCIALS } from "../data/business.js";
 
 const QUICK = [
   { to: "/", label: "Home" },
@@ -26,21 +27,38 @@ export default function Footer() {
           </div>
           <p className="footer-tag">{BUSINESS.tagline}.</p>
           <p className="footer-since">Dry Cleaning · Steam Iron · Shoe Laundry · Since {BUSINESS.since}</p>
+
+          <ul className="footer-social" aria-label="Get in touch">
+            {SOCIALS.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  aria-label={s.label}
+                  title={s.label}
+                  {...(s.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  <Icon name={s.icon} size={18} />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="footer-col">
+        <nav className="footer-col" aria-label="Quick links">
           <h4>Quick Links</h4>
           {QUICK.map((q) => (
             <Link key={q.to} to={q.to}>{q.label}</Link>
           ))}
-        </div>
+        </nav>
 
-        <div className="footer-col">
+        <nav className="footer-col" aria-label="Services">
           <h4>Services</h4>
           {SERVICES.slice(0, 6).map((s) => (
             <Link key={s.id} to={`/services/${s.id}`}>{s.name}</Link>
           ))}
-        </div>
+        </nav>
 
         <div className="footer-col">
           <h4>Contact</h4>
@@ -49,8 +67,20 @@ export default function Footer() {
           ))}
           <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
           <p className="footer-addr">
-            {CONTACT.address.line1}, {CONTACT.address.area}
+            {CONTACT.address.line1},<br />
+            {CONTACT.address.line2}, {CONTACT.address.area}
           </p>
+        </div>
+
+        <div className="footer-col footer-hours">
+          <h4>Business Hours</h4>
+          {CONTACT.hours.map((h) => (
+            <div className="footer-hours-row" key={h.day}>
+              <span>{h.day}</span>
+              <span>{h.time}</span>
+            </div>
+          ))}
+          <p className="footer-addr">Free pickup &amp; delivery across Andheri West.</p>
         </div>
       </div>
 

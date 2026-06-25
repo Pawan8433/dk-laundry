@@ -15,7 +15,10 @@ export default function Gallery() {
               <img
                 src={g.src}
                 alt={g.alt}
+                width="600"
+                height="450"
                 loading="lazy"
+                decoding="async"
                 onError={(e) => e.currentTarget.closest(".gallery-item").classList.add("img-fallback")}
               />
             </figure>
