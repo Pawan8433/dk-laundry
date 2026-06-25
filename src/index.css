@@ -945,7 +945,9 @@ summary:focus-visible,
 @media (max-width: 430px) {
   :root { --gutter: 16px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn { width: 100%; }
+  /* reset the row-layout flex-basis so it doesn't size the button's height
+     once the container becomes a column (was rendering giant pill buttons) */
+  .hero-actions .btn { flex: 0 0 auto; width: 100%; }
   .cta-actions, .detail-actions { width: 100%; }
   .cta-actions .btn, .detail-actions .btn { flex: 1 1 100%; }
   .reviews-summary { flex-direction: column; text-align: center; align-items: center; }
